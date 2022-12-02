@@ -89,9 +89,7 @@ defmodule Typesense.Documents do
   end
 
   def delete(collection, query) when is_map(query) do
-    dbg("we in here")
-    a = Typesense.delete("/collections/#{collection}/documents", [], params: query)
-    dbg(a)
+    Typesense.delete("/collections/#{collection}/documents", [], params: query)
   end
 
   @doc """

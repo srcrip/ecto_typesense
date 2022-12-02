@@ -16,7 +16,8 @@ defmodule EctoTypesense.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      docs: docs()
+      docs: docs(),
+      test_paths: ["test/unit"]
     ]
   end
 
