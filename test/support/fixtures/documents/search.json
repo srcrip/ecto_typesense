@@ -1,0 +1,30 @@
+{
+  "facet_counts": [],
+  "found": 1,
+  "out_of": 1,
+  "page": 1,
+  "request_params": {
+    "collection_name": "companies",
+    "per_page": 10,
+    "q": "stark"
+  },
+  "search_time_ms": 1,
+  "hits": [
+    {
+      "highlights": [
+        {
+          "field": "company_name",
+          "snippet": "<mark>Stark</mark> Industries",
+          "matched_tokens": ["Stark"]
+        }
+      ],
+      "document": {
+        "id": "124",
+        "company_name": "Stark Industries",
+        "num_employees": 5215,
+        "country": "USA"
+      },
+      "text_match": 130916
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  search:
+    image: typesense/typesense:0.23.1
+    entrypoint: sh -c "/opt/typesense-server --data-dir /data --api-key=secret"
+    ports:
+      - 8109:8108
+    volumes:
+      - search-data:/data
+volumes:
+  search-data:
+    driver: local
