@@ -4,4 +4,6 @@ defmodule Typesense.Schema do
   """
 
   @enforce_keys [:name, :fields]
+
+  # NOTE: got to do something with this. Maybe use specs instead?
 end

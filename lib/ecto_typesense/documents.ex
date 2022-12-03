@@ -1,6 +1,6 @@
 defmodule EctoTypesense.Documents do
   @moduledoc """
-  Interact with Typesense documents by passing Ecto schemas.
+  Interact with Typesense documents from an Ecto schema.
   """
 
   alias EctoTypesense.Collections

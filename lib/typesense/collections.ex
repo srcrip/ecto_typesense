@@ -1,6 +1,6 @@
 defmodule Typesense.Collections do
   @moduledoc """
-  The `Typesense.Collections` module is the service implementation for Typesense' `Collections` API Resource.
+  Methods for interaction with Typesense collections.
   """
 
   @type schema :: %{

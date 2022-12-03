@@ -1,6 +1,6 @@
 defmodule Typesense do
   @moduledoc """
-  HTTPoison client for the Typesense API.
+  HTTP client for the Typesense API.
   """
 
   alias HTTPoison.{AsyncResponse, Base, Error, Request, Response}

@@ -1,18 +1,5 @@
 defmodule EctoTypesense do
   @moduledoc """
-  Documentation for `EctoTypesense`.
+  Wraps calls to the Typesense module by allowing you to pass Ecto schemas directly.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> EctoTypesense.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

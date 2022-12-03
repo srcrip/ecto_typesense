@@ -1,6 +1,6 @@
 defmodule Typesense.Documents do
   @moduledoc """
-  HTTP wrapper for Typesense Documents.
+  Methods for interaction with Typesense Documents.
   """
 
   @doc """

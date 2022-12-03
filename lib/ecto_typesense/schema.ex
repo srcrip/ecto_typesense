@@ -22,6 +22,9 @@ defmodule EctoTypesense.Schema do
   end
 
   defprotocol DocumentProtocol do
+    @doc """
+    Used to convert Ecto schemas into Maps to pass to Typesense. This is implemented as a protocol instead of just Jason derive, because you may want to load more content before indexing something.
+    """
     @fallback_to_any true
     @spec coerce(Ecto.Schema.t()) :: binary()
     def coerce(schema)
