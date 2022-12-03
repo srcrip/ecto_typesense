@@ -1,6 +1,14 @@
-# EctoTypesense
+<h1 align="center">EctoTypesense</h1>
+
+> Index your Ecto schemas directly into Typesense!
+
+[![Build Status](https://github.com/sevensidedmarble/ecto_typesense/workflows/CI/badge.svg)](https://github.com/sevensidedmarble/ecto_typesense/actions/workflows/ci.yml)
+[![Hex.pm](https://img.shields.io/hexpm/v/ecto_typesense.svg)](https://hex.pm/packages/ecto_typesense)
+[![Documentation](https://img.shields.io/badge/documentation-gray)](https://hexdocs.pm/ecto_typesense)
 
 ## Documentation
+
+Documentation can be found at [https://hexdocs.pm/ecto_typesense](https://hexdocs.pm/ecto_typesense).
 
 ## Installation
 

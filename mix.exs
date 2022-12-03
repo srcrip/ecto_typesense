@@ -52,7 +52,7 @@ defmodule EctoTypesense.MixProject do
 
   defp package do
     [
-      files: ~w(lib mix.exs README.md LICENSE),
+      files: ~w(lib mix.exs README.md LICENSE.md),
       maintainers: ["sevensidedmarble"],
       licenses: ["MIT"],
       links: %{
