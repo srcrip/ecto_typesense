@@ -4,9 +4,9 @@ on:
     branches:
       - master
 jobs:
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
-    name: Elixir ${{ matrix.elixir }} / OTP ${{ matrix.otp }}
+    name: Unit Test - Elixir ${{ matrix.elixir }} / OTP ${{ matrix.otp }}
 
     strategy:
       fail-fast: false
@@ -39,3 +39,36 @@ jobs:
       - name: Run test
         run: |-
           MIX_ENV=test mix test
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    name: E2E Test - Elixir ${{ matrix.elixir }} / OTP ${{ matrix.otp }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - elixir: "1.14"
+            otp: "25"
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: erlef/setup-beam@v1.12
+        with:
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
+
+      - name: Install dependencies
+        run: mix deps.get
+
+      - name: Start containers
+        run: docker-compose -f "test/e2e/docker-compose.yml" up -d --build
+
+      - name: Run tests
+        run: |-
+          MIX_ENV=test mix test --seed 0 --trace test/e2e/
+
+      - name: Stop containers
+        if: always()
+        run: docker-compose -f "test/e2e/docker-compose.yml" down
