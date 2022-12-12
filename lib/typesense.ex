@@ -9,6 +9,14 @@ defmodule Typesense do
 
   @default_headers [{"Content-Type", "application/json"}]
   @default_options [parse: :json]
+  @default_params [
+    connection_timeout_seconds: 600
+  ]
+
+  @impl Base
+  def process_request_params(params) do
+    Keyword.merge(@default_params, Enum.to_list(params))
+  end
 
   @impl Base
   def process_request_options(options) do

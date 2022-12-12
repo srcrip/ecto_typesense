@@ -120,12 +120,16 @@ defmodule Typesense.Documents do
   iex> Typesense.Documents.import(collection, documents, :create)
   {:ok, documents}
   """
-  def import(collection, documents, action \\ :create) do
+  def import(collection, documents, params \\ []) do
+    default_params = [action: :create]
+    params = Keyword.merge(default_params, params)
+
     Typesense.post(
-      "/collections/#{collection}/documents/import?action=#{action}",
+      "/collections/#{collection}/documents/import",
       prepare_jsonl(documents),
       [],
-      parse: :jsonl
+      parse: :jsonl,
+      params: params
     )
   end
 

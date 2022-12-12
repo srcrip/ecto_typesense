@@ -3,17 +3,17 @@ defmodule EctoTypesense.Collections do
   Interact with Typesense collections from an Ecto schema.
   """
 
-  def create_collection(module) do
+  def create(module) do
     collection(module)
     |> Typesense.Collections.create()
   end
 
-  def retrieve_collection(module) do
+  def retrieve(module) do
     collection(module)
     |> Typesense.Collections.retrieve()
   end
 
-  def delete_collection(module) do
+  def delete(module) do
     collection(module)
     |> Typesense.Collections.delete()
   end

@@ -63,16 +63,9 @@ defmodule EctoTypesense.Documents do
     |> Typesense.Documents.export()
   end
 
-  @spec import(Ecto.Queryable.t(), list(Ecto.Schema.t())) :: {:ok, map()} | {:error, any()}
-  def import(module, documents) do
-    Collections.collection(module)
-    |> Typesense.Documents.import(documents)
-  end
+  def import(documents, params \\ [], module \\ nil)
 
-  @spec import(list(Ecto.Schema.t())) :: {:ok, map()} | {:error, any()}
-  def import([]), do: raise("imported documents list cannot be empty")
-
-  def import(documents) do
+  def import(documents, params, nil) do
     documents
     |> Enum.map(& &1.__meta__.schema)
     |> Enum.frequencies()
@@ -81,11 +74,16 @@ defmodule EctoTypesense.Documents do
     |> case do
       1 ->
         Collections.collection(List.first(documents).__meta__.schema)
-        |> Typesense.Documents.import(as_jsonl(documents))
+        |> Typesense.Documents.import(as_jsonl(documents), params)
 
       _ ->
         raise "all imported documents must be of the same type"
     end
+  end
+
+  def import(documents, params, module) do
+    Collections.collection(module)
+    |> Typesense.Documents.import(documents, params)
   end
 
   @spec as_jsonl(list(Ecto.Schema.t())) :: term
