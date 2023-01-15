@@ -6,10 +6,10 @@ defmodule EctoTypesense.Documents do
   alias EctoTypesense.Collections
   alias EctoTypesense.Schema.DocumentProtocol
 
-  @spec create(Ecto.Schema.t()) :: {:ok, map()} | {:error, any()}
-  def create(document) do
+  @spec create(Ecto.Schema.t(), any) :: {:ok, map()} | {:error, any()}
+  def create(document, params \\ []) do
     Collections.collection(document.__meta__.schema)
-    |> Typesense.Documents.create(DocumentProtocol.coerce(document))
+    |> Typesense.Documents.create(DocumentProtocol.coerce(document), params)
   end
 
   @spec retrieve(Ecto.Schema.t()) :: {:ok, map()} | {:error, any()}

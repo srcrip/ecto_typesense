@@ -18,9 +18,9 @@ defmodule Typesense.Documents do
   {:ok, document}
   ```
   """
-  @spec create(binary(), binary() | map()) :: {:ok, map()} | {:error, any()}
-  def create(collection, document) do
-    Typesense.post("/collections/#{collection}/documents", document)
+  @spec create(binary(), binary() | map(), any) :: {:ok, map()} | {:error, any()}
+  def create(collection, document, params \\ []) do
+    Typesense.post("/collections/#{collection}/documents", document, [], params: params)
   end
 
   @doc """

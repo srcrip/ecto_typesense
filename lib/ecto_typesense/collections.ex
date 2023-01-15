@@ -4,7 +4,7 @@ defmodule EctoTypesense.Collections do
   """
 
   def create(module) do
-    collection(module)
+    source(module)
     |> Typesense.Collections.create()
   end
 
@@ -16,6 +16,10 @@ defmodule EctoTypesense.Collections do
   def delete(module) do
     collection(module)
     |> Typesense.Collections.delete()
+  end
+
+  def source(module) do
+    module.__typesense_schema__(:source)
   end
 
   def collection(module) do
