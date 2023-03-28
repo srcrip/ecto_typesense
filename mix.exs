@@ -35,7 +35,7 @@ defmodule EctoTypesense.MixProject do
       {:mox, "~> 0.5", only: :test},
       {:mimic, "~> 1.7", only: :test},
       {:ecto, "~> 3.9"},
-      {:httpoison, "~> 1.8.2"},
+      {:httpoison, "~> 2.0.0"},
       {:jason, "~> 1.2"}
     ]
   end
